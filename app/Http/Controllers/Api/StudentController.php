@@ -48,8 +48,9 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
+
         $user = $this->studentRepository->update($request->validated(), $student->id);
-        return StudentResource::make($user);
+        return $user;
     }
 
     /**

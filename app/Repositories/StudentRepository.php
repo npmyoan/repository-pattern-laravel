@@ -23,7 +23,8 @@ class StudentRepository implements StudentRepositoryInterface
 
     public function update(array $data, int|string $id)
     {
-        return Student::whereId($id)->update($data);
+        Student::where('id', $id)->update($data);
+        return Student::findOrFail($id);
     }
 
     public function delete(int|string $id)
